@@ -1,0 +1,33 @@
+void OnTriggerEnter2D(Collider2D coll)
+    {
+        if(coll.tag == "Player")
+        {
+            if(count == 1)
+            {
+                gameC.GetComponent<GameController>().OpenMessage();
+                textPanel.gameObject.GetComponentInChildren<Text>().text = "To go to the left press 'A', and to the right press 'D'";
+                Destroy(this.gameObject);
+            }
+ 
+            if(count == 2)
+            {
+                gameC.GetComponent<GameController>().OpenMessage();
+                textPanel.gameObject.GetComponentInChildren<Text>().text = "Jump with the 'SPACE'";
+                Destroy(this.gameObject);
+            }
+ 
+            if(count == 3)
+            {
+                gameC.GetComponent<GameController>().OpenMessage();
+                textPanel.gameObject.GetComponentInChildren<Text>().text = "Collect a life star by passing by it";
+                Destroy(this.gameObject);
+            }
+ 
+            if(count == 4)
+            {
+                gameC.GetComponent<GameController>().OpenMessage();
+                textPanel.gameObject.GetComponentInChildren<Text>().text = "Collect an item pressing 'Z' close to the item";
+                Destroy(this.gameObject);
+            }
+        }
+    }

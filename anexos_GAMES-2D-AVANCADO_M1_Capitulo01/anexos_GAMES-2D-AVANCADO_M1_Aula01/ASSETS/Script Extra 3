@@ -1,0 +1,46 @@
+void OnTriggerEnter2D(Collider2D coll)
+    {
+        if(coll.gameObject.tag == "Player")
+        {
+          questPanel.SetActive(true);
+         
+          if(questCode == "first" && !aux)
+     {
+       questPanel.transform.GetChild(1).gameObject.GetComponent<Text>().text = "Which item gave speed to the player?";
+       questPanel.transform.GetChild(2).gameObject.GetComponentInChildren<Text>().text = "good apple";
+       questPanel.transform.GetChild(3).gameObject.GetComponentInChildren<Text>().text = "bad apple";
+       questPanel.transform.GetChild(4).gameObject.GetComponentInChildren<Text>().text = "star";
+       questPanel.transform.GetChild(5).gameObject.GetComponentInChildren<Text>().text = "spike";
+       //----------------------------------------------------------
+       questPanel.transform.GetChild(2).GetComponent<Button>().onClick.RemoveAllListeners();
+       questPanel.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(RightButton);
+       questPanel.transform.GetChild(3).GetComponent<Button>().onClick.RemoveAllListeners();
+       questPanel.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(WrongButton);
+       questPanel.transform.GetChild(4).GetComponent<Button>().onClick.RemoveAllListeners();
+       questPanel.transform.GetChild(4).GetComponent<Button>().onClick.AddListener(WrongButton);
+       questPanel.transform.GetChild(5).GetComponent<Button>().onClick.RemoveAllListeners();
+       questPanel.transform.GetChild(5).GetComponent<Button>().onClick.AddListener(WrongButton);
+       aux = true;
+     }
+ 
+      else if(questCode == "second" && !aux)
+     {
+       questPanel.transform.GetChild(1).gameObject.GetComponent<Text>().text = "Which item gave life to the player";
+       questPanel.transform.GetChild(2).gameObject.GetComponentInChildren<Text>().text = "good apple";
+       questPanel.transform.GetChild(3).gameObject.GetComponentInChildren<Text>().text = "bad apple";
+       questPanel.transform.GetChild(4).gameObject.GetComponentInChildren<Text>().text = "spike";
+       questPanel.transform.GetChild(5).gameObject.GetComponentInChildren<Text>().text = "star";
+       //----------------------------------------------------------
+       questPanel.transform.GetChild(2).GetComponent<Button>().onClick.RemoveAllListeners();
+       questPanel.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(WrongButton);
+       questPanel.transform.GetChild(3).GetComponent<Button>().onClick.RemoveAllListeners();
+       questPanel.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(WrongButton);
+       questPanel.transform.GetChild(4).GetComponent<Button>().onClick.RemoveAllListeners();
+ 
+       questPanel.transform.GetChild(4).GetComponent<Button>().onClick.AddListener(WrongButton);
+       questPanel.transform.GetChild(5).GetComponent<Button>().onClick.RemoveAllListeners();
+       questPanel.transform.GetChild(5).GetComponent<Button>().onClick.AddListener(RightButton);
+       aux = true;
+     }
+        }
+    }
